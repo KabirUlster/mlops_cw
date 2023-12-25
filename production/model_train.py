@@ -19,7 +19,7 @@ from sklearn.model_selection import cross_val_score, GridSearchCV
 # args = parser.parse_args()
 # df_train_data = pd.read_csv(args.datapath)
 
-df_train_data = pd.read_csv('../train.csv')
+df_train_data = pd.read_csv('./train.csv')
 df_train_data.head()
 
 # %%
@@ -46,11 +46,6 @@ plt.show()
 df_train_data['subject'].unique()
 
 # %%
-# X = pd.DataFrame(df_train_data.drop(['Activity', 'subject'], axis=1))
-# y = df_train_data.Activity.values.astype(object)
-
-# X.shape, y.shape
-
 X = df_train_data.drop(['Activity', 'subject'], axis=1)
 y = df_train_data['Activity'].values.astype(object)
 
@@ -71,23 +66,18 @@ num_of_cols = X.select_dtypes(include='number').columns
 print("Number of numeric features:", num_of_cols.size) 
 
 # %%
-y = preprocessing.LabelEncoder().fit_transform(y)
-print("Shape of y:", y.shape)
+lab_encoder = preprocessing.LabelEncoder()
 
 # %%
-y[5], encoder.classes_
-
-# %%
-encoder.classes_[5]
+lab_encoder.fit(y)
+y = lab_encoder.transform(y)
+y.shape, lab_encoder.classes_
 
 # %%
 standard_scaler = StandardScaler()
 
 X = standard_scaler.fit_transform(X)
 X[5]
-
-# %%
-
 
 # %%
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=100)
@@ -109,9 +99,9 @@ def eval_model(true, predicted):
 
 # %%
 models = {
-    # "SVM": SVC(),
     "SVM": SVC(kernel='rbf',C=100.0),
     # "Logistic Regression": LogisticRegression(random_state=5, max_iter=2000),
+    # "SVM": SVC(),
 }
 
 list_of_model = []

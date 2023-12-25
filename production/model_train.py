@@ -41,11 +41,6 @@ plt.figure(figsize=(6,6))
 plt.pie(activity_counts, labels=activity_counts.index, autopct='%1.1f%%', startangle=90)
 plt.title('Distribution of Activities')
 plt.show()
-# plt.figure(figsize=(6,3))
-
-# axis = sns.countplot(x="Activity", data=df_train_data)
-# plt.xticks(x=df_train_data['Activity'], rotation='vertical')
-# plt.show()
 
 # %%
 df_train_data['subject'].unique()
@@ -72,17 +67,10 @@ y[1000]
 X.info()
 
 # %%
-# num_of_cols = X._get_numeric_data().columns
 num_of_cols = X.select_dtypes(include='number').columns
 print("Number of numeric features:", num_of_cols.size) 
 
 # %%
-# encoder = preprocessing.LabelEncoder()
-
-# encoder.fit(y)
-# y = encoder.transform(y)
-# y.shape
-
 y = preprocessing.LabelEncoder().fit_transform(y)
 print("Shape of y:", y.shape)
 
@@ -121,9 +109,9 @@ def eval_model(true, predicted):
 
 # %%
 models = {
-    "Logistic Regression": LogisticRegression(random_state=5, max_iter=2000),
-    "SVM": SVC(kernel='rbf',C=100.0),
     # "SVM": SVC(),
+    "SVM": SVC(kernel='rbf',C=100.0),
+    # "Logistic Regression": LogisticRegression(random_state=5, max_iter=2000),
 }
 
 list_of_model = []
@@ -171,8 +159,5 @@ for i in range(len(list(models))):
 # %%
 result_df = pd.DataFrame(list(zip(list_of_model, accuracy_list)), columns=['Algorithm_Type', 'Accuracy_Score']).sort_values(by=["Accuracy_Score"],ascending=False)
 print(result_df)
-
-# %%
-# tuned_svc = SVC(kernel='rbf',C=100.0)
 
 

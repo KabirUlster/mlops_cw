@@ -77,12 +77,12 @@ num_of_cols = X.select_dtypes(include='number').columns
 print("Number of numeric features: ", num_of_cols.size) 
 
 # %%
-lab_encoder = preprocessing.LabelEncoder()
+label_encoder = preprocessing.LabelEncoder()
 
 # %%
-lab_encoder.fit(y)
-y = lab_encoder.transform(y)
-y.shape, lab_encoder.classes_
+label_encoder.fit(y)
+y = label_encoder.transform(y)
+y.shape, label_encoder.classes_
 
 # %%
 standard_scaler = StandardScaler()
@@ -126,21 +126,21 @@ for i in range(len(list(models))):
     model.fit(X_train, y_train) 
 
     # Make predictions
-    y_train_prediction = model.predict(X_train)
+    # y_train_prediction = model.predict(X_train)
     y_test_prediction = model.predict(X_test)
 
-    model_train_accuracy , model_train_precision, model_train_recall, model_train_f1, model_train_cm = eval_model(y_train, y_train_prediction)
+    # model_train_accuracy , model_train_precision, model_train_recall, model_train_f1, model_train_cm = eval_model(y_train, y_train_prediction)
 
     model_test_accuracy , model_test_precision, model_test_recall, model_test_f1, model_test_cm = eval_model(y_test, y_test_prediction)
 
     print(list(models.keys())[i])
     list_of_model.append(list(models.keys())[i])
     
-    print('Model performance for Training set')
-    print("- Accuracy: {:.4f}".format(model_train_accuracy))
-    print("- Precision: {:.4f}".format(model_train_precision))
-    print("- Recall: {:.4f}".format(model_train_recall))
-    print("- f1: {:.4f}".format(model_train_f1))
+    # print('Model performance for Training set')
+    # print("- Accuracy: {:.4f}".format(model_train_accuracy))
+    # print("- Precision: {:.4f}".format(model_train_precision))
+    # print("- Recall: {:.4f}".format(model_train_recall))
+    # print("- f1: {:.4f}".format(model_train_f1))
  
 
     print('----------------------------------')

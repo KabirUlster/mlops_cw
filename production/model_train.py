@@ -14,12 +14,12 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.model_selection import cross_val_score, GridSearchCV
 
 # %%
-# parser = argparse.ArgumentParser()
-# parser.add_argument("--datapath", type=str, required=True, help='Path to training dataset')
-# args = parser.parse_args()
-# df_train_data = pd.read_csv(args.datapath)
+parser = argparse.ArgumentParser()
+parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
+args = parser.parse_args()
 
-df_train_data = pd.read_csv('./train.csv')
+# df_train_data = pd.read_csv('./train.csv')
+df_train_data = pd.read_csv(args.trainingdata)
 df_train_data.head()
 
 # %%

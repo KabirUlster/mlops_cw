@@ -1,15 +1,3 @@
-# $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-# code: .
-# command: python model_train.py --trainingdata ${{ inputs.training_data }}
-# inputs:
-#   training_data:
-#     type: uri_file
-#     path: azureml:train:1
-# environment: azureml://registries/azureml/environments/sklearn-1.1/versions/14
-# compute: cw-practical-compute
-# experiment_name: cw_practical
-# description: train dataset for human activity recognition
-
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: .
 command: >-
@@ -19,9 +7,6 @@ inputs:
   training_data: 
     type: uri_file
     path: azureml:train:1
-  # kernel: "rbf"
-  # coef0: 0.1
-# environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 environment: azureml://registries/azureml/environments/sklearn-1.1/versions/20
 compute: cw-practical-compute
 display_name: cw_practical

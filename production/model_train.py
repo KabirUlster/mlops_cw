@@ -1,24 +1,24 @@
 # %%
 import argparse
 import numpy as np
+# import seaborn as sns
 import pandas as pd
-import seaborn as sns
 from matplotlib import pyplot as plt
 
-from sklearn.linear_model import LogisticRegression
+# from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn import  preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
-from sklearn.model_selection import cross_val_score, GridSearchCV
+# from sklearn.model_selection import cross_val_score, GridSearchCV
 
 # %%
 parser = argparse.ArgumentParser()
 parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
 args = parser.parse_args()
 
-# df_train_data = pd.read_csv('./train.csv')
+# df_train_data = pd.read_csv('../train.csv')
 df_train_data = pd.read_csv(args.trainingdata)
 df_train_data.head()
 
@@ -48,6 +48,8 @@ df_train_data['subject'].unique()
 # %%
 X = df_train_data.drop(['Activity', 'subject'], axis=1)
 y = df_train_data['Activity'].values.astype(object)
+
+print(np.unique(df_train_data.Activity.values, return_counts=True))
 
 print("X shape:", X.shape)
 print("y shape:", y.shape)
@@ -149,5 +151,4 @@ for i in range(len(list(models))):
 # %%
 result_df = pd.DataFrame(list(zip(list_of_model, accuracy_list)), columns=['Algorithm_Type', 'Accuracy_Score']).sort_values(by=["Accuracy_Score"],ascending=False)
 print(result_df)
-
-
+# %%

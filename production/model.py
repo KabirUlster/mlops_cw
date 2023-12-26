@@ -1,7 +1,8 @@
 # %%
+# import seaborn as sns
+import mlflow
 import argparse
 import numpy as np
-# import seaborn as sns
 import pandas as pd
 from matplotlib import pyplot as plt
 
@@ -17,6 +18,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 parser = argparse.ArgumentParser()
 parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
 args = parser.parse_args()
+mlflow.autolog()
 
 # df_train_data = pd.read_csv('../train.csv')
 df_train_data = pd.read_csv(args.trainingdata)

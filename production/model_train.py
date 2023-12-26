@@ -14,25 +14,32 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 # from sklearn.model_selection import cross_val_score, GridSearchCV
 
 # %%
-parser = argparse.ArgumentParser()
-parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
+# args = parser.parse_args()
 
-# df_train_data = pd.read_csv('../train.csv')
-df_train_data = pd.read_csv(args.trainingdata)
-df_train_data.head()
-
-# %%
-df_train_data.tail()
+df_train_data = pd.read_csv('../train.csv')
+# df_train_data = pd.read_csv(args.trainingdata)
+head = df_train_data.head()
+print('data head: ', head)
 
 # %%
-df_train_data.shape
+tail = df_train_data.tail()
+print('data tail: ',tail)
 
 # %%
-df_train_data.isnull().sum()
+data_shape = df_train_data.shape
+print("data shape: ", data_shape)
 
 # %%
-df_train_data['Activity'].unique()
+null_column = df_train_data.isnull().sum()
+
+print('check null columns: ', null_column)
+
+# %%
+actvities = df_train_data['Activity'].unique()
+
+print('HAR actvities: ', actvities)
 
 # %%
 activity_counts = df_train_data['Activity'].value_counts()
@@ -51,8 +58,8 @@ y = df_train_data['Activity'].values.astype(object)
 
 print(np.unique(df_train_data.Activity.values, return_counts=True))
 
-print("X shape:", X.shape)
-print("y shape:", y.shape)
+print("X shape: ", X.shape)
+print("y shape: ", y.shape)
 
 # %%
 X.head()
@@ -65,7 +72,7 @@ X.info()
 
 # %%
 num_of_cols = X.select_dtypes(include='number').columns
-print("Number of numeric features:", num_of_cols.size) 
+print("Number of numeric features: ", num_of_cols.size) 
 
 # %%
 lab_encoder = preprocessing.LabelEncoder()

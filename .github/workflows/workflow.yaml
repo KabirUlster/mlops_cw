@@ -38,15 +38,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y azure-cli
-
-    - name: Remove Any ML extension
-      run: |
-        az extension remove -n azure-cli-ml
-        az extension remove -n ml
-
     - name: Install Azure ML Extension
       run: |
         az extension add -n ml -y
     - name: Submit Azure ML Job
       run: |
-        az ml job create --file ../production/job.yaml --resource-group cw_practical --workspace-name cw_practical
+        az ml job create --file ../../production/job.yaml --resource-group cw_practical --workspace-name cw_practical

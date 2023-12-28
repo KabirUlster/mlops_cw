@@ -34,6 +34,13 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Install Azure CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y azure-cli
+    - name: Install Azure ML Extension
+      run: |
+        az extension add --name azure-cli-ml
     - name: Submit Azure ML Job
       run: |
         az ml job create --file job.yaml --resource-group cw_practical --workspace-name cw_practical

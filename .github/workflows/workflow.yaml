@@ -43,6 +43,4 @@ jobs:
         az extension add --name azure-cli-ml
     - name: Submit Azure ML Job
       run: |
-      	az ml extension show --name azure-cli-ml
-        az ml -h
         az ml job create --file job.yaml --resource-group cw_practical --workspace-name cw_practical

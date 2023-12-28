@@ -66,4 +66,5 @@ jobs:
     - name: Print Working Directory
       run: |
         pwd
-        ls -la
+        head production/job.yaml
+        ls -la production/job.yaml

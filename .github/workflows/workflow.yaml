@@ -19,52 +19,29 @@
 #       - name: Test azure login by getting details
 #         run: az account show
 
-# name: Submit Azure ML Job
-# on:
-#   push:
-#     branches:
-#       - main
-# jobs:
-#   submit_aml_job:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout Repository
-#       uses: actions/checkout@v2
-#     - name: Azure Login
-#       uses: azure/login@v1
-#       with:
-#         creds: ${{ secrets.AZURE_CREDENTIALS }}
-#     - name: Install Azure CLI
-#       run: |
-#         sudo apt-get update
-#         sudo apt-get install -y azure-cli
-#     - name: Install Azure ML Extension
-#       run: |
-#         az extension add -n ml -y
-#     - name: Submit Azure ML Job
-#       run: |
-#         ls ../../production/
-
-
-# az ml job create --file ../../production/job.yaml --resource-group cw_practical --workspace-name cw_practical
-
-name: Debug Workflow
-
+name: Submit Azure ML Job
 on:
   push:
     branches:
       - main
-
 jobs:
-  debug_workflow:
+  submit_aml_job:
     runs-on: ubuntu-latest
-    
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
-
-    - name: Print Working Directory
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Install Azure CLI
       run: |
-        pwd
-        head production/job.yaml
-        ls -la production/job.yaml
+        sudo apt-get update
+        sudo apt-get install -y azure-cli
+    - name: Install Azure ML Extension
+      run: |
+        az extension add -n ml -y
+    - name: Submit Azure ML Job
+      run: |
+        ls production/
+        az ml job create --file production/job.yaml --resource-group cw_practical --workspace-name cw_practical

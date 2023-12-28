@@ -2,7 +2,7 @@ name: Submit Azure ML Job
 on:
   push:
     branches:
-      - main
+      - staging
 jobs:
   submit_aml_job:
     runs-on: ubuntu-latest

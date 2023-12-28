@@ -43,7 +43,7 @@ jobs:
         az extension add -n ml -y
     - name: Submit Azure ML Job
       run: |
-        head ../../production/job.yaml
+        ls ../../production/
 
 
 # az ml job create --file ../../production/job.yaml --resource-group cw_practical --workspace-name cw_practical

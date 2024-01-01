@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: .
 command: >-
-  python model.py 
+  python train.py 
   --trainingdata ${{inputs.training_data}}
 inputs:
   training_data: 
@@ -9,8 +9,8 @@ inputs:
     path: azureml:har_dataset:1
 environment: azureml://registries/azureml/environments/sklearn-1.1/versions/20
 compute: cw-compute
-display_name: cw_practical_test
-experiment_name: cw_practical_test
+display_name: cw_practical
+experiment_name: cw_practical
 description: Train a scikit-learn SVM on the HAR dataset.
 
 # cw-practical-compute

@@ -6,7 +6,7 @@ command: >-
 inputs:
   training_data: 
     type: uri_file
-    path: azureml:train:1
+    path: azureml:har_dataset:1
 environment: azureml://registries/azureml/environments/sklearn-1.1/versions/20
 compute: cw-compute
 display_name: cw_practical
@@ -15,4 +15,3 @@ description: Train a scikit-learn SVM on the HAR dataset.
 
 # cw-practical-compute
 # az ml job create –file job.yaml –resource-group cw_resourcegrp --workspace-name cw_workspace
-# cw_practical

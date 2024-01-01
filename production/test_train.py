@@ -11,7 +11,7 @@ class TestModelTrain(unittest.TestCase):
         self.test_x=[]
         self.test_y = ['LAYING', 'SITTING', 'STANDING', 'WALKING', 'WALKING_DOWNSTAIRS', 'WALKING_UPSTAIRS']
         
-        input_file_path = 'har_dataset.csv'
+        input_file_path = 'production/har_dataset.csv'
         df = pd.read_csv(input_file_path)
         result_df = pd.DataFrame(columns=df.columns)
 

@@ -12,3 +12,6 @@ compute: cw-practical-compute
 display_name: cw_practical
 experiment_name: cw_practical
 description: Train a scikit-learn SVM on the HAR dataset.
+
+# cw-practical-compute
+# az ml job create –file job.yaml –resource-group cw_practical --workspace-name cw_practical

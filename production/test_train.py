@@ -37,17 +37,9 @@ class TestModelTrain(unittest.TestCase):
 
 
     def test_pre_process(self):
-        scaled_x, encoded_y, classes = preprocess(self.test_Xx,self.test_y)
+        scaled_x, _ = preprocess(self.test_Xx,self.test_y)
         self.assertTrue(np.allclose(np.mean(scaled_x, axis=0), 0))
         self.assertTrue(np.allclose(np.std(scaled_x, axis=0), 1))
-
-        # Expected mapping of labels to encoded values
-        expected_mapping = {'LAYING': 0, 'SITTING': 1, 'STANDING': 2, 'WALKING': 3, 'WALKING_DOWNSTAIRS':4, 'WALKING_UPSTAIRS':5}
-
-        # check if labels are correctly encoded
-        for label, expected_value in expected_mapping.items():
-            self.assertEqual(encoded_y[classes == label][0], expected_value)
-
 
 
     def test_split_data(self):

@@ -7,20 +7,19 @@ from matplotlib import pyplot as plt
 
 # from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from sklearn import  preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import cross_val_score, GridSearchCV
 
 # %%
-# parser = argparse.ArgumentParser()
-# parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
-# args = parser.parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
+args = parser.parse_args()
 mlflow.autolog()
 
-df_train_data = pd.read_csv('har_dataset.csv')
-# df_train_data = pd.read_csv(args.trainingdata)
+# df_train_data = pd.read_csv('har_dataset.csv')
+df_train_data = pd.read_csv(args.trainingdata)
 head = df_train_data.head()
 print('data head: ', head)
 

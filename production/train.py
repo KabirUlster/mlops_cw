@@ -4,7 +4,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 from sklearn.svm import SVC
-from sklearn import preprocessing
+# from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -23,11 +23,9 @@ def preprocess(X, Y):
     # Feature scaling
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
-    encoder = preprocessing.LabelEncoder()
-    # encoding labels
-    encoder.fit(Y)
-    Y = encoder.transform(Y)
-    return X, Y, encoder.classes_
+
+    Y = Y
+    return X, Y
 
 # Split the dataset to train and test
 def split_data(X, Y, percentage, rand_state):
@@ -49,11 +47,11 @@ def assess_model(model, Y, X):
 
 def train_model(data, model_save_path):
     x, y = load_data(data)
-    X, Y, arr_class = preprocess(x, y)
+    X, Y = preprocess(x, y)
     X_train, X_test, Y_train, Y_test = split_data(X, Y, 0.2, 100)
     print('Length of train', len(X_train))
     print('Length of test', len(X_test))
-    print('classes array', arr_class)
+    
     model = build_model(X_train, Y_train)
     accuracy, precision = assess_model(model, Y_test, X_test)
     print("Accuracy", accuracy)
@@ -66,7 +64,7 @@ def train_model(data, model_save_path):
 
 if __name__ == "__main__":
 	argparser = argparse.ArgumentParser()
-	argparser.add_argument('--data', required=True, help='load data file')
+	argparser.add_argument('--trainingdata', required=True, help='load data file')
 	argparser.add_argument('--model', default=False, help='save model file')
 	args = argparser.parse_args()
 	

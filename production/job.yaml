@@ -9,8 +9,8 @@ inputs:
     path: azureml:har_dataset:1
 environment: azureml://registries/azureml/environments/sklearn-1.1/versions/20
 compute: cw-compute
-display_name: cw_practical
-experiment_name: cw_practical
+display_name: cw_practical_test
+experiment_name: cw_practical_test
 description: Train a scikit-learn SVM on the HAR dataset.
 
 # cw-practical-compute

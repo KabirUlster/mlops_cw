@@ -23,4 +23,4 @@ jobs:
     - name: Submit Azure ML Job
       run: |
         ls production/
-        az ml job create --file production/job.yaml --resource-group cw_practical --workspace-name cw_practical
+        az ml job create --file production/job.yaml --resource-group cw_resourcegrp --workspace-name cw_workspace

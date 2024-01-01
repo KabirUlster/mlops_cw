@@ -9,6 +9,8 @@ train.csv
 har_dataset_.zip
 production\model_1.py
 model_1.py
+.gitignore
+C:\Users\Admin\OneDrive\Desktop\774 CW2\.gitignore
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

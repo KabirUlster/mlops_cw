@@ -29,7 +29,7 @@ class TestModelTrain(unittest.TestCase):
 
 
     def test_load_data(self):
-        X, Y = load_data('har_dataset.csv')
+        X, Y = load_data('production/har_dataset.csv')
         self.assertGreaterEqual(len(X), 7352)
         self.assertEqual(len(Y), len(X))
 

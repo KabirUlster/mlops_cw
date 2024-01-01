@@ -15,3 +15,6 @@ description: Train a scikit-learn SVM on the HAR dataset.
 
 # cw-practical-compute
 # az ml job create –file job.yaml –resource-group cw_resourcegrp --workspace-name cw_workspace
+# az ad sp create-for-rbac --name "b00930724-mlops_cw" --role contributor --scopes /subscriptions/142ce733-3cf1-49d1-9165-fba23d3ef6fe/resourceGroups/cw_resourcegrp --sdk-auth
+
+# 142ce733-3cf1-49d1-9165-fba23d3ef6fe

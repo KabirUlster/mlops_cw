@@ -14,13 +14,13 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 from sklearn.model_selection import cross_val_score, GridSearchCV
 
 # %%
-parser = argparse.ArgumentParser()
-parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
-args = parser.parse_args()
-mlflow.autolog()
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
+# args = parser.parse_args()
+# mlflow.autolog()
 
-# df_train_data = pd.read_csv('../train.csv')
-df_train_data = pd.read_csv(args.trainingdata)
+df_train_data = pd.read_csv('../train.csv')
+# df_train_data = pd.read_csv(args.trainingdata)
 head = df_train_data.head()
 print('data head: ', head)
 
@@ -162,5 +162,4 @@ for i in range(len(list(models))):
 # %%
 result_df = pd.DataFrame(list(zip(model_list, r2_list)), columns=['Algorithm_Type', 'Accuracy_Score']).sort_values(by=["Accuracy_Score"],ascending=False)
 print(result_df)
-
-
+# %%

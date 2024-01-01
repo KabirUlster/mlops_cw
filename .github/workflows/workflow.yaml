@@ -9,6 +9,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+    - name: Run Unit Test
+      run: |
+        python -m unittest discover -s tests -p "test_*.py"
     - name: Azure Login
       uses: azure/login@v1
       with:

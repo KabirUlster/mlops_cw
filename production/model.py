@@ -17,7 +17,7 @@ from sklearn.model_selection import cross_val_score, GridSearchCV
 # parser = argparse.ArgumentParser()
 # parser.add_argument("--trainingdata", type=str, required=True, help='training dataset')
 # args = parser.parse_args()
-# mlflow.autolog()
+mlflow.autolog()
 
 df_train_data = pd.read_csv('har_dataset.csv')
 # df_train_data = pd.read_csv(args.trainingdata)

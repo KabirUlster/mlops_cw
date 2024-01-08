@@ -1,6 +1,7 @@
 model copy.ipynb
 model_cp.ipynb
 test.csv
+train.csv
 development
 model.ipynb
 production\model_train.ipynb
@@ -11,6 +12,9 @@ production\model_1.py
 model_1.py
 .gitignore
 C:\Users\Admin\OneDrive\Desktop\774 CW2\.gitignore
+production\har_dataset2.csv
+har_dataset2.csv
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

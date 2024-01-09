@@ -49,5 +49,5 @@ jobs:
           az extension add -n ml -y
       - name: Submit Azure ML Job
         run: |
-          ls production/
-          az ml job create --file production/job.yaml --resource-group cw_resourcegrp --workspace-name cw_workspace
+          az ml job create --file production/job.yaml --resource-group cw2_resourcegrp --workspace-name cw2_workspace
+

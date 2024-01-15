@@ -11,7 +11,7 @@ class TestModelTrain(unittest.TestCase):
         self.test_x=[]
         self.test_y = ['LAYING', 'SITTING', 'STANDING', 'WALKING', 'WALKING_DOWNSTAIRS', 'WALKING_UPSTAIRS']
         
-        input_file_path = 'production/har_dataset.csv'
+        input_file_path = 'har_dataset.csv'
         df = pd.read_csv(input_file_path)
         result_df = pd.DataFrame(columns=df.columns)
 
@@ -29,7 +29,7 @@ class TestModelTrain(unittest.TestCase):
 
 
     def test_load_data(self):
-        X, Y = load_data('production/har_dataset.csv')
+        X, Y = load_data('har_dataset.csv')
         self.assertGreaterEqual(len(X), 7352)
         self.assertEqual(len(Y), len(X))
 
